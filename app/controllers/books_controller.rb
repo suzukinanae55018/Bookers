@@ -13,7 +13,7 @@ class BooksController < ApplicationController
       render :new
       # render :index としたいがnomethoderrorが出る　newページにflash[:notice]でメッセージが出る
       # indexのコントローラに何か定義しなくてはいけない？indexに切り替えたらflash[:notice]をnewから消し、indexに書く
-    end  
+    end
   end
 
   def index
@@ -32,7 +32,9 @@ class BooksController < ApplicationController
   def update
     book = Book.find(params[:id])
     book.update(book_params)
+    # flash[:notice] = "Book was successfully updated."これがあると更新されない
     redirect_to book_path(book.id)
+  # if else endを記述してもバリデーションチェックが反映されない
   end
 
   def destroy
