@@ -5,8 +5,15 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    @book.save
-    redirect_to book_path(@book.id)
+    if @book.save
+      flash[:notice] = "Book was successfully created."
+      redirect_to book_path(@book.id)
+    else
+      flash.now[:notice] = "error"
+      render :new
+      # render :index としたいがnomethoderrorが出る　newページにflash[:notice]でメッセージが出る
+      # indexのコントローラに何か定義しなくてはいけない？indexに切り替えたらflash[:notice]をnewから消し、indexに書く
+    end  
   end
 
   def index
