@@ -14,7 +14,7 @@ class BooksController < ApplicationController
       render :index
     end
   end
-  
+
   def index
     @books = Book.all
     @book = Book.new
@@ -36,7 +36,7 @@ class BooksController < ApplicationController
     else
       flash.now[:notice]
       render :edit
-    end  
+    end
   end
 
   def destroy
