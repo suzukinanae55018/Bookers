@@ -30,7 +30,7 @@
 </table>
 
 <h2 class="new-heading">New book</h2>
-
+<div class="error-message">
 <% if @book.errors.any? %>
  <% if @book.errors.count > 1 %>
   <%= @book.errors.count %>errors prohibited this book from being saved:
@@ -44,7 +44,7 @@
     <% end %>
   </ul>
 <% end %>
-
+</div>
 
 
 <%= form_with model: @book do |f| %>
