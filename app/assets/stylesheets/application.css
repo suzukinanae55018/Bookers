@@ -38,3 +38,39 @@ strong {
   font-family: sans-serif;
 }
 
+.book-title {
+  padding: 1px 5px 7px;
+}
+
+.book-body {
+  padding: 1px 5px 7px;
+}
+
+.book-link {
+  padding: 1px 5px 7px;
+}
+
+.new-heading {
+  padding: 12px 0;
+  font-size: 19px;
+}
+
+.new-box {
+  width: 169px;
+  height: 134px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.box-title {
+  font-size: 13px;
+}
+
+.box-body {
+  font-size: 13px;
+}
+
+.button {
+  margin-top: 10px;
+}
