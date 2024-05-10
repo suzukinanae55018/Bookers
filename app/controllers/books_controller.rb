@@ -10,12 +10,10 @@ class BooksController < ApplicationController
       redirect_to book_path(@book.id)
     else
       flash.now[:notice] = "error"
-      render :new
-      # render :index としたいがnomethoderrorが出る　newページにflash[:notice]でメッセージが出る
-      # indexのコントローラに何か定義しなくてはいけない？indexに切り替えたらflash[:notice]をnewから消し、indexに書く
+      render :index
     end
   end
-
+  
   def index
     @books = Book.all
     @book = Book.new
@@ -32,7 +30,7 @@ class BooksController < ApplicationController
   def update
     book = Book.find(params[:id])
     book.update(book_params)
-    # flash[:notice] = "Book was successfully updated."これがあると更新されない
+    # flash[:notice] = "Book was successfully updated."
     redirect_to book_path(book.id)
   # if else endを記述してもバリデーションチェックが反映されない
   end
