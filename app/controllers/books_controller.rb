@@ -10,7 +10,7 @@ class BooksController < ApplicationController
       redirect_to book_path(@book.id)
     else
     @books = Book.all
-      flash.now[:notice] = "error"
+      flash.now[:notice]
       render :index
     end
   end
@@ -29,11 +29,14 @@ class BooksController < ApplicationController
   end
 
   def update
-    book = Book.find(params[:id])
-    book.update(book_params)
-    # flash[:notice] = "Book was successfully updated."
-    redirect_to book_path(book.id)
-  # if else endを記述してもバリデーションチェックが反映されない
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
+      flash[:notice] = "Book was successfully updated."
+      redirect_to book_path(@book.id)
+    else
+      flash.now[:notice]
+      render :edit
+    end  
   end
 
   def destroy
