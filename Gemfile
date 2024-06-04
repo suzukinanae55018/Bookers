@@ -51,4 +51,5 @@ group :test do
    gem 'faker'
  end
 
+ gem 'whenever', require: false
  gem 'net-smtp'
