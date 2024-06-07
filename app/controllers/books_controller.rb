@@ -16,6 +16,7 @@ class BooksController < ApplicationController
   end
 
   def index
+    # puts "作成したキー #{ENV['SECRET_KEY']}"環境変数の練習
     @books = Book.all
     @book = Book.new
   end

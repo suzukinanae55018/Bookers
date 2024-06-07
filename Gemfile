@@ -59,3 +59,4 @@ group :test do
 
 gem "whenever", require: false
 gem "net-smtp"
+gem 'dotenv-rails'
