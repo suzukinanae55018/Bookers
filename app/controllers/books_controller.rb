@@ -10,7 +10,7 @@ class BooksController < ApplicationController
       redirect_to book_path(@book.id)
     else
       @books = Book.all
-      flash.now[:notice]
+      flash.now[:error]
       render :index
     end
   end
